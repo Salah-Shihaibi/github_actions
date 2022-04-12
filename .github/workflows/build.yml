@@ -7,24 +7,5 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: 3.8.12
-          architecture: x64
-
-      - name: Install poetry
-        run: pip install poetry && poetry config virtualenvs.create false
-      - name: Install python packages
-        run: poetry install -v
-
-      - name: Run Tests
-        run: make test
-      - name: Linter
-        run: make linter
+  cd:
+    uses: r2dl/backend-framework-library/.github/workflows/cd.yml@v1.0
