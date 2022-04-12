@@ -8,4 +8,5 @@ on:
 
 jobs:
   cd:
-    uses: r2dl/backend-framework-library/.github/workflows/cd.yml@v1.0
+    steps:
+      - uses: ./backend-framework-library/ci.yml
