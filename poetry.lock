@@ -68,6 +68,7 @@ numpy = [
     {version = ">=1.18.5", markers = "platform_machine != \"aarch64\" and platform_machine != \"arm64\" and python_version < \"3.10\""},
     {version = ">=1.19.2", markers = "platform_machine == \"aarch64\" and python_version < \"3.10\""},
     {version = ">=1.20.0", markers = "platform_machine == \"arm64\" and python_version < \"3.10\""},
+    {version = ">=1.21.0", markers = "python_version >= \"3.10\""},
 ]
 python-dateutil = ">=2.8.1"
 pytz = ">=2020.1"
@@ -164,8 +165,8 @@ python-versions = ">=3.7"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "3.8.13"
-content-hash = "f1ab4244326118cd739b8e55efe30ff9e364d35f5760e4df580d92d51ae11a7c"
+python-versions = "^3.8.12"
+content-hash = "f1a2ae48c490b1d059c3e2be28bc3f8349ea6cd443a383cbcc14127158c883ba"
 
 [metadata.files]
 atomicwrites = [

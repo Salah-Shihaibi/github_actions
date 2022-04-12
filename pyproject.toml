@@ -5,7 +5,7 @@ description = ""
 authors = ["Linus Casassa <linus.casassa@r2-factory.com>"]
 
 [tool.poetry.dependencies]
-python = "3.8.13"
+python = "^3.8.12"
 pandas = "^1.4.2"
 numpy = "^1.22.3"
 
