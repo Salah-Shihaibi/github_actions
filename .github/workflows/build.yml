@@ -8,4 +8,4 @@ on:
 
 jobs:
   cd:
-    uses: ./backend-framework-library/ci.yml
+    uses: ./ci.yml
