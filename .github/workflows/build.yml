@@ -8,4 +8,4 @@ on:
 
 jobs:
   cd:
-    uses: ./ci.yml
+    uses: ./ci.yml@${{ github.sha }}
