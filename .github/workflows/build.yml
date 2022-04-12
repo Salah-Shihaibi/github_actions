@@ -8,5 +8,4 @@ on:
 
 jobs:
   cd:
-    steps:
-      - uses: ./backend-framework-library/ci.yml
+    uses: ./backend-framework-library/ci.yml
