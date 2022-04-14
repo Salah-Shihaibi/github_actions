@@ -1,6 +1,16 @@
 import pandas as pd
+from backend_framework_library import ServiceGenerator
 
-def my_method(a):
-  df = pd.DataFrame(a)
-  df2 = df.sort_values(df.columns[0])
-  return df2.to_json(orient='values')
+service = ServiceGenerator()
+app = service.app
+
+@service.add_route("/")
+def my_method():
+    a = [1,2,3,4]
+    df = pd.DataFrame(a)
+    df2 = df.sort_values(df.columns[0])
+    return df2.to_json(orient="values"),  200
+
+
+if __name__ == "__main__":
+    service.run_in_debug()
