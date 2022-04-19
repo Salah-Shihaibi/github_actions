@@ -2,9 +2,7 @@ name: Propagate Changes
 on:
   push:
     tags:
-      - 'v(\.?[0-9]+[a-z]*)*'
-    branches:
-      - main
+      - 'v*'
 
 jobs:
   joke-backend:
