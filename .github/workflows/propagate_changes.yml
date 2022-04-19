@@ -18,5 +18,5 @@ jobs:
       run: |
         git log --oneline --graph --all
         git remote add joke-backend https://github.com/r2dl/joke-backend.git
-        git push --set-upstream joke-backend main:base
+        git push --set-upstream joke-backend ${GITHUB_REF_NAME}:base
         gh pr create --title "Template-backend new release: ${GITHUB_REF_NAME}" --body "Automatic Pull request from r2dl/template-backend" --base main --head base --repo r2dl/joke-backend || echo "repo already created"
