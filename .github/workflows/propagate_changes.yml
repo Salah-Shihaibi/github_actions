@@ -1,0 +1,20 @@
+name: Propagate Changes
+on:
+  push:
+    tags:
+      - 'v(.?[0-9]+[a-z]*)*'  # for example: v1.0.0 or v1.0.0a
+ jobs:
+  joke-backend:
+      runs-on: ubuntu-latest
+      if: github.repository == 'r2dl/template-backend' && github.event_name == 'push'
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            token: ${{ secrets.PR_GITHUB_TOKEN }}
+            fetch-depth: 0
+        - run: |
+            git remote add joke-backend https://github.com/r2dl/joke-backend.git
+            git push --set-upstream joke-backend main:base
+            gh pr create --title "Base Code Updates" --body "Automatic Pull request from r2dl/template-backend repo branch main" --base main --head base --repo r2dl/joke-backend || echo "repo already created"
+          env:
+            GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
