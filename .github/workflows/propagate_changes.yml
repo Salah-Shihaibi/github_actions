@@ -13,9 +13,9 @@ jobs:
       with:
         token: ${{ secrets.PR_GITHUB_TOKEN }}
         fetch-depth: 0
-    - run: |
+    - env:
+        GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
+      run: |
         git remote add joke-backend https://github.com/r2dl/joke-backend.git
         git push --set-upstream joke-backend main:base
         gh pr create --title "Base Code Updates" --body "Automatic Pull request from r2dl/template-backend repo branch main" --base main --head base --repo r2dl/joke-backend || echo "repo already created"
-      env:
-        GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
