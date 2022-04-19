@@ -2,7 +2,7 @@ name: Propagate Changes
 on:
   push:
     tags:
-      - 'v(.?[0-9]+[a-z]*)*'  # for example: v1.0.0 or v1.0.0a
+      - 'v(.?[0-9]+[a-z]*)*'
 
 jobs:
   joke-backend:
