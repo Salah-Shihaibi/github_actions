@@ -12,7 +12,7 @@ def my_method():
 
 @service.add_route("/")
 def my_method_exposed():
-    my_method()
+    return my_method()
 
 
 if __name__ == "__main__":
