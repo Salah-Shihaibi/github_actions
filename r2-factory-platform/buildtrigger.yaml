@@ -7,7 +7,7 @@ steps:
       - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
       - .
       - '-f'
-      - backend-framework-library/Dockerfile
+      - r2-factory-platform/Dockerfile
     id: Build
   - name: gcr.io/cloud-builders/docker
     args:
