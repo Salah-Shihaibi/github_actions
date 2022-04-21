@@ -33,3 +33,18 @@ jobs:
         git remote add joke-backend https://github.com/r2dl/joke-backend.git
         git push --set-upstream joke-backend ${GITHUB_SHA}:refs/heads/base
         gh pr create --title "Template-backend new release: ${GITHUB_REF_NAME}" --body "Automatic Pull request from r2dl/template-backend" --base main --head base --repo r2dl/joke-backend || echo "repo already created"
+
+  pasta-backend:
+    runs-on: ubuntu-latest
+    if: github.repository == 'r2dl/template-backend'
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.PR_GITHUB_TOKEN }}
+        fetch-depth: 0
+    - env:
+        GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
+      run: |
+        git remote add pasta-backend https://github.com/r2dl/pasta-backend.git
+        git push --set-upstream pasta-backend ${GITHUB_SHA}:refs/heads/base
+        gh pr create --title "Template-backend new release: ${GITHUB_REF_NAME}" --body "Automatic Pull request from r2dl/template-backend" --base main --head base --repo r2dl/pasta-backend || echo "repo already created"
