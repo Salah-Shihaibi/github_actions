@@ -1,0 +1,18 @@
+services:
+  swaggerui:
+    image: swaggerapi/swagger-ui
+    ports:
+    - 8081:8080
+    networks:
+      - local-dev
+  server:
+    build:
+      context: .
+      dockerfile: backend-framework-library/Dockerfile
+    command: python main.py run -h 0.0.0.0
+    networks:
+      - local-dev
+networks:
+  local-dev:
+    external: true
+
