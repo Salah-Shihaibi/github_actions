@@ -9,6 +9,7 @@ python = "^3.8.12"
 pandas = "^1.4.2"
 numpy = "^1.22.3"
 backend_framework_library = { path = "backend-framework-library", develop = true }
+requests = "^2.27.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
