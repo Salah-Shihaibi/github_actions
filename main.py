@@ -1,5 +1,5 @@
 import pandas as pd
-from backend_framework_library import ServiceGenerator
+from r2_factory_platform import ServiceGenerator
 
 service = ServiceGenerator()
 app = service.app
