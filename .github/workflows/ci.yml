@@ -12,10 +12,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: true
-          token: ${{ secrets.PR_GITHUB_TOKEN }}
-
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
@@ -24,6 +20,9 @@ jobs:
 
       - name: Install poetry
         run: pip install poetry && poetry config virtualenvs.create false
+      - name: Check python lock file
+        if: github.repository != 'r2dl/template-backend'
+        run: poetry check
       - name: Install python packages
         run: poetry install -v
 
