@@ -1,10 +1,17 @@
 steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    id: Pull-cache
+    args: ['-c', 'docker pull $_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:latest || exit 0']
   - name: gcr.io/cloud-builders/docker
     args:
       - build
-      - '--no-cache'
       - '-t'
       - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
+      - '-t',
+      - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:latest',
+      - '--cache-from',
+      - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:latest',
       - .
       - '-f'
       - r2-factory-platform/Dockerfile
@@ -14,6 +21,11 @@ steps:
       - push
       - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
     id: Push
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:latest'
+    id: Push-cache
 #  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
 #    args:
 #      - run
@@ -29,6 +41,7 @@ steps:
 #    entrypoint: gcloud
 images:
   - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
+  - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:latest'
 options:
   substitutionOption: ALLOW_LOOSE
 substitutions:
