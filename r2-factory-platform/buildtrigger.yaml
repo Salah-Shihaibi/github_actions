@@ -5,7 +5,7 @@ steps:
       - '--no-cache'
       - '-t'
       - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
-      - ..
+      - .
       - '-f'
       - r2-factory-platform/Dockerfile
     id: Build
