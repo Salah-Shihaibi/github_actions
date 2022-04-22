@@ -21,28 +21,6 @@ tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)"
 tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "cloudpickle"]
 
 [[package]]
-name = "backend_framework_library"
-version = "1.1"
-description = ""
-category = "main"
-optional = false
-python-versions = "*"
-develop = true
-
-[package.dependencies]
-black = "*"
-flask = "*"
-Flask-Cors = "*"
-flask-swagger = "*"
-gunicorn = "*"
-pytest = "*"
-pytest-cov = "*"
-
-[package.source]
-type = "directory"
-url = "backend-framework-library"
-
-[[package]]
 name = "black"
 version = "22.3.0"
 description = "The uncompromising code formatter."
@@ -398,6 +376,28 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "r2-factory-platform"
+version = "1.1"
+description = ""
+category = "main"
+optional = false
+python-versions = "*"
+develop = true
+
+[package.dependencies]
+black = "*"
+flask = "*"
+Flask-Cors = "*"
+flask-swagger = "*"
+gunicorn = "*"
+pytest = "*"
+pytest-cov = "*"
+
+[package.source]
+type = "directory"
+url = "r2-factory-platform"
+
+[[package]]
 name = "requests"
 version = "2.27.1"
 description = "Python HTTP for Humans."
@@ -478,7 +478,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.12"
-content-hash = "63a75a5b0166eb65723337d5df8ea3cfa39e9d556470a50b33e331078c326aa3"
+content-hash = "a91708598b651221923cd48da9e5f5e000725224991154a93efa20a2cbd3c592"
 
 [metadata.files]
 atomicwrites = [
@@ -489,7 +489,6 @@ attrs = [
     {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
     {file = "attrs-21.4.0.tar.gz", hash = "sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"},
 ]
-backend_framework_library = []
 black = [
     {file = "black-22.3.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:2497f9c2386572e28921fa8bec7be3e51de6801f7459dffd6e62492531c47e09"},
     {file = "black-22.3.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:5795a0375eb87bfe902e80e0c8cfaedf8af4d49694d69161e5bd3206c18618bb"},
@@ -776,6 +775,7 @@ pyyaml = [
     {file = "PyYAML-6.0-cp39-cp39-win_amd64.whl", hash = "sha256:b3d267842bf12586ba6c734f89d1f5b871df0273157918b0ccefa29deb05c21c"},
     {file = "PyYAML-6.0.tar.gz", hash = "sha256:68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"},
 ]
+r2-factory-platform = []
 requests = [
     {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},
     {file = "requests-2.27.1.tar.gz", hash = "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"},
