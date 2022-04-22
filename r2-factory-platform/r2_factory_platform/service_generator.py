@@ -21,4 +21,4 @@ class ServiceGenerator:
         return self.app.route(*args, **kwargs)
 
     def run_in_debug(self, debug=True):
-        self.app.run_in_debug(debug=debug, host="0.0.0.0", port=8080)
+        self.app.run(debug=debug, host="0.0.0.0", port=8080)
