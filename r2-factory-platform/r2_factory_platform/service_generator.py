@@ -17,8 +17,14 @@ class ServiceGenerator:
         def spec():
             return json.dumps(swagger(self.app))
 
-    def add_route(self, *args, **kwargs):
-        return self.app.route(*args, **kwargs)
+    def add_route(self, rule, **options):
+        def outer(fnc):
+            def inner():
+                return fnc(), 200
+            inner.__name__ = fnc.__name__
+            endpoint = options.pop("endpoint", None)
+            self.app.add_url_rule(rule, endpoint, inner, **options)
+        return outer
 
     def run_in_debug(self, debug=True):
         self.app.run(debug=debug, host="0.0.0.0", port=8080)
