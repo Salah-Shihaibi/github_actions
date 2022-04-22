@@ -1,0 +1,31 @@
+steps:
+  - id: 'Deploy'
+    name: 'gcr.io/cloud-builders/gcloud'
+    env:
+      - 'KUBECONFIG=/kube/config'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+          PROJECT=$$(gcloud config get-value core/project)
+          gcloud container clusters get-credentials "${_CLUSTER}" \
+            --project "$${PROJECT}" \
+            --zone "${_ZONE}"
+          kubectl create namespace $_MICROSERVICE_NAME --dry-run=client -o yaml | kubectl apply -f -
+          kubectl -n $_MICROSERVICE_NAME apply -f ../k8s
+          kubectl -n $_MICROSERVICE_NAME delete pods --selector=app=$_MICROSERVICE_NAME
+images:
+  - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
+options:
+  substitutionOption: ALLOW_LOOSE
+substitutions:
+  _GCR_HOSTNAME: docker.pkg.dev
+  _LABELS: gcb-trigger-id=7305e4c4-3f13-4d52-9f01-45057da30826
+  _TRIGGER_ID: 7305e4c4-3f13-4d52-9f01-45057da30826
+  _PLATFORM: managed
+  _DEPLOY_REGION: us-central1
+  _MICROSERVICE_NAME: dummy
+tags:
+  - gcp-cloud-build-deploy-cloud-run
+  - gcp-cloud-build-deploy-cloud-run-managed
+  - $_MICROSERVICE_NAME-$BRANCH_NAME
