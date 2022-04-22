@@ -6,14 +6,14 @@ RUN pip install poetry
 
 COPY ./pyproject.toml ./poetry.lock ./
 
-COPY ../backend-framework-library ./backend-framework-library/
+COPY ../r2-factory-platform ./r2-factory-platform/
 
 RUN poetry config virtualenvs.create false \
   && poetry install --no-dev
 
 RUN pip uninstall -y poetry
 
-COPY . .
+COPY ../r2-factory-platform .
 
 EXPOSE 8000
 

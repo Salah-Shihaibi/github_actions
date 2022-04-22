@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name="backend_framework_library",
+    name="r2_factory_platform",
     version="1.1",
     packages=find_packages(),
     install_requires=[

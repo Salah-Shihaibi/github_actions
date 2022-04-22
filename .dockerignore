@@ -1,5 +1,5 @@
-backend-framework-library/Dockerfile
-backend-framework-library/README.md
-backend-framework-library/.gitignore
-backend-framework-library/.git
-backend-framework-library/*.egg-info
+r2-factory-platform/Dockerfile
+r2-factory-platform/README.md
+r2-factory-platform/.gitignore
+r2-factory-platform/.git
+r2-factory-platform/*.egg-info

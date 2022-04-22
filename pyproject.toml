@@ -8,7 +8,7 @@ authors = ["Linus Casassa <linus.casassa@r2-factory.com>"]
 python = "^3.8.12"
 pandas = "^1.4.2"
 numpy = "^1.22.3"
-backend_framework_library = { path = "backend-framework-library", develop = true }
+r2_factory_platform = { path = "r2-factory-platform", develop = true }
 requests = "^2.27.1"
 
 [build-system]

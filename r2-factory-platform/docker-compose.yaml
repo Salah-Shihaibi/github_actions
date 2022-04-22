@@ -7,8 +7,8 @@ services:
       - local-dev
   server:
     build:
-      context: .
-      dockerfile: backend-framework-library/Dockerfile
+      context: ../r2-factory-platform
+      dockerfile: r2-factory-platform/Dockerfile
     command: python main.py run -h 0.0.0.0
     networks:
       - local-dev
