@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: catalog
-        image: us-central1-docker.pkg.dev/r2datalabs-prototype/joke-backend/main
+        image: us-central1-docker.pkg.dev/r2datalabs-prototype/project_name/main
         imagePullPolicy: Always
         ports:
           - containerPort: 8080
