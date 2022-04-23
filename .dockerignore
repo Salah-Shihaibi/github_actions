@@ -3,3 +3,6 @@ r2-factory-platform/README.md
 r2-factory-platform/.gitignore
 r2-factory-platform/.git
 r2-factory-platform/*.egg-info
+r2-factory-platform/docker-compose.yaml
+r2-factory-platform/buildtrigger.yaml
+r2-factory-platform/buildtriggertag.yaml
