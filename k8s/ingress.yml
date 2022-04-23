@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - project_name.beta-api-dev.com
-    secretName: project_name-beta-api-dev-com-tls
+    - joke-backend.beta-api-dev.com
+    secretName: joke-backend-beta-api-dev-com-tls
   rules:
-  - host: "project_name.beta-api-dev.com"
+  - host: "joke-backend.beta-api-dev.com"
     http:
       paths:
       - pathType: Prefix
