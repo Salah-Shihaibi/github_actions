@@ -25,6 +25,8 @@ substitutions:
   _PLATFORM: managed
   _DEPLOY_REGION: us-central1
   _MICROSERVICE_NAME: dummy
+  _CLUSTER: cluster-1
+  _ZONE: us-central1-c
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - gcp-cloud-build-deploy-cloud-run-managed
