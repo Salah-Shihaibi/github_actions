@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: project_name
+  name: joke-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: project_name
+      app: joke-backend
   template:
     metadata:
       labels:
-        app: project_name
+        app: joke-backend
     spec:
       containers:
       - name: catalog
