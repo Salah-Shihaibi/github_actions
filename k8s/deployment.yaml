@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project_name
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project_name
+  template:
+    metadata:
+      labels:
+        app: project_name
+    spec:
+      containers:
+      - name: catalog
+        image: us-central1-docker.pkg.dev/r2datalabs-prototype/joke-backend/main
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 80
+            name: http
