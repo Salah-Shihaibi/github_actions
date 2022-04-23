@@ -17,5 +17,5 @@ spec:
         image: us-central1-docker.pkg.dev/r2datalabs-prototype/joke-backend/main
         imagePullPolicy: Always
         ports:
-          - containerPort: 80
+          - containerPort: 8080
             name: http
