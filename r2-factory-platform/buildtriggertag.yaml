@@ -14,8 +14,6 @@ steps:
           kubectl create namespace $_MICROSERVICE_NAME --dry-run=client -o yaml | kubectl apply -f -
           kubectl -n $_MICROSERVICE_NAME apply -f k8s
           kubectl -n $_MICROSERVICE_NAME delete pods --selector=app=$_MICROSERVICE_NAME
-images:
-  - '$_DEPLOY_REGION-$_GCR_HOSTNAME/$PROJECT_ID/$_MICROSERVICE_NAME/$BRANCH_NAME:$COMMIT_SHA'
 options:
   substitutionOption: ALLOW_LOOSE
 substitutions:
