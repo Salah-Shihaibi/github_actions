@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "backend-examplea"
+name = "project_name"
 version = "0.1.0"
 description = ""
 authors = ["Linus Casassa <linus.casassa@r2-factory.com>"]
