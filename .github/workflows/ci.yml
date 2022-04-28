@@ -27,6 +27,12 @@ jobs:
         run: poetry install -v
 
       - name: Run Tests
+        id: test
         run: poetry run pytest
+        env:
+          BODY: ${{ github.event.issue.body }}
       - name: Linter
         run: poetry run black -l 120 .
+      - name: Check on failures
+            run: echo ${{ steps.step1.outputs}}
+
