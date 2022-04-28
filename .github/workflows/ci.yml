@@ -8,6 +8,7 @@ on:
 
 jobs:
   ci:
+    if: always()
     runs-on: ubuntu-latest
 
     steps:
