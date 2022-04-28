@@ -29,7 +29,7 @@ jobs:
 
       - name: Run Tests
         id: test
-        run: ::set-output name=test::$(poetry run pytest)
+        run: echo "::set-output name=test::$(poetry run pytest)"
         env:
           BODY: ${{ github.event.issue.body }}
       - name: Linter
