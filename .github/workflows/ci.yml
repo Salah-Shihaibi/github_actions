@@ -34,9 +34,9 @@ jobs:
       - name: Linter
         run: poetry run black -l 120 .
       - name: Dump steps context
-          env:
-            STEPS_CONTEXT: ${{ toJson(steps) }}
-          run: echo "$STEPS_CONTEXT"
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
       - name: Check
         run: echo ${{ steps.test.outputs}}
 
