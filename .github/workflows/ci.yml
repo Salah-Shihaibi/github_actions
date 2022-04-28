@@ -33,6 +33,6 @@ jobs:
           BODY: ${{ github.event.issue.body }}
       - name: Linter
         run: poetry run black -l 120 .
-      - name: Check on failures
-            run: echo ${{ steps.step1.outputs}}
+      - name: Check
+        run: echo ${{ steps.step1.outputs}}
 
