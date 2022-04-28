@@ -40,7 +40,7 @@ jobs:
         run: echo "$STEPS_CONTEXT"
       - name: Check
         run: |
-          echo ${{ join(steps.test.outputs.*, ''} }}
+          echo ${{ join(steps.test.outputs.*, '') }}
           echo ${{ join(steps.linter.outputs.*, ' ') }}
   check:
     runs-on: ubuntu-latest
