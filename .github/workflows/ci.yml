@@ -39,4 +39,11 @@ jobs:
         run: echo "$STEPS_CONTEXT"
       - name: Check
         run: echo ${{ steps.test.outputs}}
-
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Dump steps context
+        env:
+          JOBS_CONTEXT: ${{ toJson(jobs) }}
+        run: echo "$JOBS_CONTEXT"
