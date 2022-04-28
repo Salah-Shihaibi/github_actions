@@ -35,7 +35,7 @@ jobs:
         run: poetry run black -l 120 .
       - name: Dump steps context
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          STEPS_CONTEXT: ${{ toJson(job) }}
         run: echo "$STEPS_CONTEXT"
       - name: Check
         run: echo ${{ steps.test.outputs}}
