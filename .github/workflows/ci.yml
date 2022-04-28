@@ -28,24 +28,27 @@ jobs:
 
       - name: Run Tests
         id: test
-        run: poetry run pytest
+        run: echo "::set-output name=test::$(poetry run pytest)"
         env:
           BODY: ${{ github.event.issue.body }}
       - name: Linter
-        run: poetry run black -l 120 .
+        id: linter
+        run: echo "::set-output name=linting::$(poetry run black -l 120 .)"
       - name: Dump steps context
         env:
-          STEPS_CONTEXT: ${{ toJson(job) }}
+          STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Check
-        run: echo ${{ steps.test.outputs}}
+        run: |
+          echo ${{ steps.test.outputs.* }}
+          echo ${{ steps.linter.outputs.* }}
   check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Dump steps context
         env:
-          JOBS_CONTEXT: ${{ toJson(github) }}
+          JOBS_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOBS_CONTEXT"
   all:
     if: ${{ always() }}
