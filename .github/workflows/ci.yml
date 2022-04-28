@@ -34,5 +34,5 @@ jobs:
       - name: Linter
         run: poetry run black -l 120 .
       - name: Check
-        run: echo ${{ steps.step1.outputs}}
+        run: echo ${{ steps.test.outputs}}
 
