@@ -47,3 +47,13 @@ jobs:
         env:
           JOBS_CONTEXT: ${{ toJson(github) }}
         run: echo "$JOBS_CONTEXT"
+  all:
+    if: ${{ always() }}
+    needs: [ ci, check ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Dump needs context
+        env:
+          JOBS_CONTEXT: ${{ toJson(needs) }}
+        run: echo "$JOBS_CONTEXT"
