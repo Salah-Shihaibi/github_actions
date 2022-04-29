@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Tests
         id: test
-        run: echo "::set-output name=test::$(poetry run pytest)"
+        run: test::$(poetry run pytest)
         env:
           BODY: ${{ github.event.issue.body }}
       - name: Linter
@@ -40,10 +40,10 @@ jobs:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Check
-        if: always()
+        if: (always() && (job.status == failure || job.status == cancelled)) 
         run: |
-          echo ${{ join(steps.test.outputs.*, '') }}
-          echo ${{ steps.linter.outputs.stdout }}
+          echo ${{ steps }}
+          echo ${{ STEPS_CONTEXT }}
   check:
     runs-on: ubuntu-latest
     steps:
