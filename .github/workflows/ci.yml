@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Tests
         id: test
-        run: test::$(poetry run pytest)
+        run: poetry run pytest
         env:
           BODY: ${{ github.event.issue.body }}
       - name: Linter
