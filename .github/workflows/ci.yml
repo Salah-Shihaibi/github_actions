@@ -43,7 +43,7 @@ jobs:
         if: (always() && (job.status == failure || job.status == cancelled)) 
         run: |
           echo ${{ steps }}
-          echo ${{ STEPS_CONTEXT }}
+          echo $STEPS_CONTEXT
   check:
     runs-on: ubuntu-latest
     steps:
