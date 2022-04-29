@@ -38,4 +38,7 @@ jobs:
         if: (always() && (job.status == 'failure' || job.status == 'cancelled')) 
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
+        run: | 
+          echo "$STEPS_CONTEXT"
+          echo ${{ steps.tests.outputs.stdout }} 
+          echo ${{ steps.linter.outputs.stdout }} 
