@@ -8,7 +8,6 @@ on:
 
 jobs:
   ci:
-    if: always()
     runs-on: ubuntu-latest
 
     steps:
@@ -36,10 +35,12 @@ jobs:
         id: linter
         run: poetry run black -l 120 .
       - name: Dump steps context
+        if: always()
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Check
+        if: always()
         run: |
           echo ${{ join(steps.test.outputs.*, '') }}
           echo ${{ steps.linter.outputs.stdout }}
