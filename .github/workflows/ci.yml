@@ -34,15 +34,12 @@ jobs:
       - name: Linter
         id: linter
         run: poetry run black -l 120 .
-      - name: Dump steps context
-        if: always()
+      - name: Check
+        if: (always() && (job.status == 'failure' || job.status == 'cancelled')) 
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
-      - name: Check
-        if: (always() && (job.status == 'failure' || job.status == 'cancelled')) 
-        run: |
-          echo ${{ steps }}
+
   check:
     runs-on: ubuntu-latest
     steps:
