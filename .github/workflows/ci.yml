@@ -42,3 +42,5 @@ jobs:
           echo "$STEPS_CONTEXT"
           echo ${{ steps.tests.outputs.stdout }} 
           echo ${{ steps.linter.outputs.stdout }} 
+  cd:
+    runs-on: ubuntu-latest          
